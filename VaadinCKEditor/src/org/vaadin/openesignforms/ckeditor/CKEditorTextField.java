@@ -86,6 +86,13 @@ public class CKEditorTextField extends AbstractField<String>
     }
 	
 	@Override
+	public void setPropertyDataSource(Property newDataSource) {
+		super.setPropertyDataSource(newDataSource);
+		markAsDirty();
+    	textIsDirty = true;
+	}
+	
+	@Override
 	public void beforeClientResponse(boolean initial) {
 		if(initial) {
 			textIsDirty = true;
